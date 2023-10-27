@@ -18,7 +18,7 @@ import com.example.findmyip3.viewmodel.UIState
 private const val TAG = "MainScreen"
 
 @Composable
-fun displayIPDetails(viewModel: IPFetcherViewModel) {
+fun DisplayIPDetails(viewModel: IPFetcherViewModel) {
     val uiState = viewModel.ipResponseState.collectAsState().value
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         when (uiState) {
