@@ -46,6 +46,8 @@ android {
     }
 }
 
+group = "com.github.walsh-cary.IPFinderLibrary"
+version = "1.0.0"
 dependencies {
 
     implementation("androidx.core:core-ktx:1.12.0")

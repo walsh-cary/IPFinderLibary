@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "FindMyIP3"
+rootProject.name = "IPFinderLibrary"
 include(":app")
  
