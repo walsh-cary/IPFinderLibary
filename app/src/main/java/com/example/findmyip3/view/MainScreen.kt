@@ -1,5 +1,6 @@
 package com.example.findmyip3.view
 
+import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,11 +16,10 @@ import com.example.findmyip3.model.IPFetcherResponseModel
 import com.example.findmyip3.viewmodel.IPFetcherViewModel
 import com.example.findmyip3.viewmodel.UIState
 
-private const val TAG = "MainScreen"
-
 @Composable
 fun DisplayIPDetails(viewModel: IPFetcherViewModel) {
     val uiState = viewModel.ipResponseState.collectAsState().value
+    Log.e("Cary", "DisplayIPDetails ${viewModel.ipResponseState.collectAsState().value}")
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         when (uiState) {
             is UIState.Loading -> {
@@ -29,7 +29,8 @@ fun DisplayIPDetails(viewModel: IPFetcherViewModel) {
                 DisplaySuccess(ipResponse = uiState.data)
             }
             is UIState.Failure -> DisplayError(uiState.error)
-            else -> {}
+
+            is UIState.Empty -> DisplayError("Empty Response")
         }
     }
 }
