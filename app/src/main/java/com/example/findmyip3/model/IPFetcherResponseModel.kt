@@ -33,14 +33,8 @@ data class IPFetcherResponseModel(
     val currencyName: String? = "",
     @SerializedName("in_eu")
     val inEu: Boolean? = false,
-    @SerializedName("ip")
-    val ip: String? = "",
     @SerializedName("languages")
     val languages: String? = "",
-    @SerializedName("latitude")
-    val latitude: Double? = 0.0,
-    @SerializedName("longitude")
-    val longitude: Double? = 0.0,
     @SerializedName("network")
     val network: String? = "",
     @SerializedName("org")
