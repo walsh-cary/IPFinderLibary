@@ -1,6 +1,5 @@
 package com.example.findmyip3.repository
 
-import android.util.Log
 import com.example.findmyip3.network.NetworkClient
 import com.example.findmyip3.viewmodel.UIState
 import kotlinx.coroutines.flow.Flow
@@ -15,7 +14,6 @@ class IPFetcherRepository: IRepository {
 
             val response = NetworkClient.api.getIpDetails()
             if (response.isSuccessful) {
-                Log.e("Cary", "response.isSuccessful ${response.isSuccessful}")
                 response.body()?.let {
                     emit(UIState.Loading(false))
                     emit(UIState.Success(it))
@@ -23,12 +21,10 @@ class IPFetcherRepository: IRepository {
                     emit(UIState.Loading(false))
                     emit(UIState.Failure(response.message()))
                 }
-                Log.e("Cary", "response.body() ${response.body()}")
             }
             else {
                 emit(UIState.Loading(false))
                 emit(UIState.Failure(response.raw().toString()))
-                Log.e("Cary", "else scenario ${response.errorBody().toString()}")
             }
         }
     }
